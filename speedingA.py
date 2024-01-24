@@ -9,15 +9,20 @@ On the driver's birthday, the speed limits for each ticket category are increase
 
 
 def speeding_ticket(speed, is_birthday):
-    if is_birthday():
-        speed += 5
 
-    if speed <= 60:
-        print("No Ticket")
-    elif 61<=speed<= 80:
-        print("Small Ticket")
-    elif speed >= 81:
-        print("Big Ticket")
+no_ticket_limit = 60
+small_ticket_limit = 80
+
+    if is_birthday:
+        no_ticket_limit += 5
+        small_ticket_limit += 5
+
+    if speed <= no_ticket_limit:
+        return "No Ticket"
+    elif speed <= small_ticket_limit:
+        return "Small Ticket"
+    else:
+        return "Big Ticket"
     
 
     

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon Car Race</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .race-track {
+            background-color: #87CEEB; /* Sky Blue */
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .road {
+            background-color: #808080; /* Gray */
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .car {
+            position: absolute;
+            bottom: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .car1 {
+            left: 20%;
+        }
+
+        .car2 {
+            left: 50%;
+        }
+
+        .car3 {
+            left: 80%;
+        }
+
+        .race-btn {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="race-track">
+    <div class="road"></div>
+
+    <div class="car car1"><img src="{{ url_for('static', filename='car1.png') }}" alt="Car 1" width="50" height="100"></div>
+    <div class="car car2"><img src="{{ url_for('static', filename='car2.png') }}" alt="Car 2" width="50" height="100"></div>
+    <div class="car car3"><img src="{{ url_for('static', filename='car3.png') }}" alt="Car 3" width="50" height="100"></div>
+</div>
+
+<button class="race-btn" onclick="startRace()">Start Race</button>
+
+<script>
+    function startRace() {
+        const cars = document.querySelectorAll('.car');
+        cars.forEach(car => car.style.transform = 'translateY(-300px)');
+    }
+</script>
+
+</body>
+</html>

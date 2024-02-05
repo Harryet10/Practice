@@ -153,3 +153,23 @@ def factorial(n):
 
 result = factorial(5)
 print("Factorial of 5:", result)
+
+def check_weirdness(n):
+    if n % 2 != 0:
+        print("Weird")
+    elif n % 2 == 0 and 2 <= n <= 5:
+        print("Not Weird")
+    elif n % 2 == 0 and 6 <= n <= 20:
+        print("Weird")
+    elif n % 2 == 0 and n > 20:
+        print("Not Weird")
+
+if __name__ == "__main__":
+    try:
+        n = int(input("Enter a positive integer: "))
+        if n > 0:
+            check_weirdness(n)
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
